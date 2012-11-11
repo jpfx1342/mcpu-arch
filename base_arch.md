@@ -64,13 +64,13 @@ well that one opcode (**AND**) will ignore this value if the M flag is set.
     PC - Program Counter               (Hidden)
 
 ###Instructions (14 + 2 reserved)
-    0000/0 - ADD    DD = X1 +  (X2 + VV)
-    0001/1 - SUB    DD = X1 -  (X2 + VV)
-    0010/2 - MUL    DD = X1 *  (X2 * VV)
-    0011/3 - DIV    DD = X1 /  (X2 * VV)
+    0000/0 - ADD    DD = X1 +  (X2 + VV) X2 may be ignored by setting it to immediate 0
+    0001/1 - SUB    DD = X1 -  (X2 + VV) X2 may be ignored by setting it to immediate 0
+    0010/2 - MUL    DD = X1 *  (X2 * VV) X2 may be ignored by setting it to immediate 1
+    0011/3 - DIV    DD = X1 /  (X2 * VV) X2 may be ignored by setting it to immediate 1
     0100/4 - AND    DD = X1 &  (X2 & VV) If X2 is immediate, it is ignored
-    0101/5 - OR     DD = X1 |  (X2 | VV)
-    0110/6 - XOR    DD = X1 ^  (X2 ^ VV)
+    0101/5 - OR     DD = X1 |  (X2 | VV) X2 may be ignored by setting it to immediate 0
+    0110/6 - XOR    DD = X1 ^  (X2 ^ VV) X2 may be ignored by setting it to immediate 0
     0111/7 - CJMP   IF(DD)  JMP(X2 + VV) DD and X1 are used as immediate arguments, see the CJMP section for more.
     1000/8 - LSHF   DD = X1 << (X2 + VV) X2 and VV are always unsigned.
     1001/9 - RSHF   DD = X1 >> (X2 + VV) If signed, MSB will be extended.
