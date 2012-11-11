@@ -37,7 +37,7 @@ unsigned values. This affects the arithmetic performed with them.
 * The **M** flag indicates that the **X2** index is *not* a pointer to a
 register, but should instead be taken as an immediate value. Because of the
 limited storage space, this value can only be a number between 0 and 7
-(-3...4 signed), however many constants in code fit within this range. Note as
+(-4...3 signed), however many constants in code fit within this range. Note as
 well that one opcode (**AND**) will ignore this value if the M flag is set.
 (Because doing otherwise would severly limit the functionality of the opcode.)
 
