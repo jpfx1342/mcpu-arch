@@ -88,16 +88,16 @@ severly limit the functionality of the opcode.)
 
 ###PC Register
 The PC register is normally unavailable for direct use by code.
-In the case that it must be accessed, the following code can be used.
-Write to PC
-CJMP 7 1 VV    //PC = VV, this is an unconditional absolute jump to VV.
-Read from PC
-CJMP 7 2 1     //PUSH PC+1 onto stack, then unconditionally relative jump to +1.
-POP X1 ZZ -1   //POP PC-1 from stack into register X1 (you may skip this instruction to keep it on the stack.)
+In the case that it must be accessed, the following code can be used:
+    //Write to PC
+    CJMP 7 1 VV    //PC = VV, this is an unconditional absolute jump to VV.
+    //Read from PC
+    CJMP 7 2 1     //PUSH PC+1 onto stack, then unconditionally relative jump to +1.
+    POP X1 ZZ -1   //POP PC-1 from stack into register X1 (you may skip this instruction to keep it on the stack.)
 
 ###CJMP Instruction
 DD is the comparison type.
-        UNSIGNED      / SIGNED
+    #   UNSIGNED      / SIGNED
     0 - ZERO          /
     1 - GREATER       /
     2 - LESS          /
@@ -120,7 +120,7 @@ For instance, for the conditional jump X1 >= X2:
     SUB ZZ X1 X2 //set FG register
     CJMP 5 0 AA //AA is absolute destination, change CJMP flags for other jumps.
 
-Example Program
+###Example Program
     Original Code   Compiled Code      Output Code           Binary Output
     SET AX 3        (ADD AX ZZ 3)      [ADDvsM AX ZZ _1]     0000 0 0 1 001 111 011
        //AX is now 3
